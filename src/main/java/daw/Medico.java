@@ -11,6 +11,9 @@ package daw;
 public class Medico extends Empleado{
 
     //insertamos atributos encapsulados
+    private String especialidad;
+    
+    //insertamos
     
     @Override
     public double calcularIrpf() {
