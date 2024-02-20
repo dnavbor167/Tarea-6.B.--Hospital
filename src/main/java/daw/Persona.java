@@ -5,6 +5,7 @@
 package daw;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -63,9 +64,9 @@ public abstract class Persona {
         sb.append('}');
         return sb.toString();
     }
-    
+
     //método para renovarNif
-    public void renovarNif(LocalDate fechaSolicitud) {
+    final public void renovarNif(LocalDate fechaSolicitud) {
         LocalDate renovar = fechaSolicitud.plusYears(10);
         this.nif.setFechaCaducidad(renovar);
     }

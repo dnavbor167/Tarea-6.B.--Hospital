@@ -4,6 +4,8 @@
  */
 package daw;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author danielnavasborjas
@@ -25,7 +27,6 @@ public abstract class Empleado extends Persona{
     }
     
     //insertamos getter y setter
-
     public String getNumeroSeguridadSocial() {
         return numeroSeguridadSocial;
     }
@@ -42,8 +43,21 @@ public abstract class Empleado extends Persona{
         this.salario = salario;
     }
     
+    //insertamos toString
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Empleado{");
+        sb.append("Nombre: ").append(super.getNombre());
+        sb.append(", Apellido: ").append(super.getApellido());
+        sb.append(", Dni: ").append(super.getNif());
+        sb.append(", numeroSeguridadSocial=").append(numeroSeguridadSocial);
+        sb.append(", salario=").append(salario);
+        sb.append('}');
+        return sb.toString();
+    }
+    
     
     //insertamos método abstracto para calcular el irpf
     public abstract double calcularIrpf();
-    
 }

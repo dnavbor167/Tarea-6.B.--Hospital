@@ -9,5 +9,5 @@ package daw;
  * @author danielnavasborjas
  */
 public interface Nadador {
-    String nada();
+    void nada(Empleado e);
 }

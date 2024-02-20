@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author danielnavasborjas
  */
-public class Administrativo extends Empleado {
+final public class Administrativo extends Empleado {
     //atributo encapsulado
     private Grupo grupo;
 
@@ -73,9 +73,9 @@ public class Administrativo extends Empleado {
                 "Hashcode: " + hashCode());
     }
     
-    //método para calcular irpf
+    //sobreescribimos el método para calcular irpf
     @Override
-    public double calcularIrpf() {
+    final public double calcularIrpf() {
         switch (this.grupo) {
             case C -> {
                 return this.getSalario()* Grupo.C.getIrpf();

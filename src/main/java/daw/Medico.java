@@ -8,16 +8,66 @@ package daw;
  *
  * @author danielnavasborjas
  */
-public class Medico extends Empleado{
+final public class Medico extends Empleado implements Nadador{
 
     //insertamos atributos encapsulados
     private String especialidad;
     
-    //insertamos
-    
-    @Override
-    public double calcularIrpf() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //insertamos constructor parametrizado
+    public Medico(String especialidad, String numeroSeguridadSocial, double salario, String nombre, String apellido, Nif nif) {
+        super(numeroSeguridadSocial, salario, nombre, apellido, nif);
+        this.especialidad = especialidad;
     }
+    //insertamos constructor sin parámetros
+    public Medico() {
+    }
+    
+    //insertamos getter y setter
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+    
+    //insertamos toString
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Medico{");
+        sb.append(" Nombre: ").append(this.getNombre());
+        sb.append(", Apellido: ").append(this.getApellido());
+        sb.append(", Dni: ").append(this.getNif());
+        sb.append("especialidad=").append(especialidad);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    //método para tratar al paciente
+    final public void tratar(Paciente paciente, String medicina) {
+        System.out.println("El médico " + this.getNombre() + " trata a " 
+                + paciente.getNombre() + " Con la medicina " + medicina);
+        //no sé si implementar el método de paciente aquí, tiene sentido
+        //así se conectan las medicinas
+        paciente.tomarMedicina(medicina);
+    }
+    
+    //sobreescribimos el método de calcular irpf del padre
+    @Override
+    final public double calcularIrpf() {
+        if (this.especialidad.equalsIgnoreCase("cirugía")) {
+            return this.getSalario() * 0.25;
+        }
+        return this.getSalario() * 0.235;
+    }
+
+    //insertamos método abstracto de la interfaz Nadador
+    @Override
+    public void nada(Empleado e) {
+        System.out.println("Un médico nada");
+    }
+
+    
     
 }

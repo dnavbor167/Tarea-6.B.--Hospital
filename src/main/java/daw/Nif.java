@@ -5,6 +5,7 @@
 package daw;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -69,6 +70,38 @@ public class Nif {
         sb.append('}');
         return sb.toString();
     }
+    
+    //insertamos equal y hashcode
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + (int) (this.numero ^ (this.numero >>> 32));
+        hash = 37 * hash + this.letra;
+        hash = 37 * hash + Objects.hashCode(this.fechaCaducidad);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Nif other = (Nif) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (this.letra != other.letra) {
+            return false;
+        }
+        return Objects.equals(this.fechaCaducidad, other.fechaCaducidad);
+    }
+    
  
     //méto privado para calcular la letra del char
     private char calcularLetra() {
