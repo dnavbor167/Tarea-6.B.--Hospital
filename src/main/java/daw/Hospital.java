@@ -4,6 +4,8 @@
 
 package daw;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,16 +17,16 @@ public class Hospital {
     private String nombre;
     private String direccion;
     private int numeroCamas;
-    private Paciente paciente;
-    private Empleado empleado;
+    private List<Paciente> paciente;
+    private List<Empleado> empleado;
     
     //insertamos constructor parametrizado
-    public Hospital(String nombre, String direccion, int numeroCamas, Paciente paciente, Empleado empleado) {
+    public Hospital(String nombre, String direccion, int numeroCamas) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.numeroCamas = numeroCamas;
-        this.paciente = paciente;
-        this.empleado = empleado;
+        this.paciente = new ArrayList<>();
+        this.empleado = new ArrayList<>();
     }
     //insertamos constructor sin parametrizar
     public Hospital() {
@@ -55,19 +57,19 @@ public class Hospital {
         this.numeroCamas = numeroCamas;
     }
 
-    public Paciente getPaciente() {
+    public List<Paciente> getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(List<Paciente> paciente) {
         this.paciente = paciente;
     }
 
-    public Empleado getEmpleado() {
+    public List<Empleado> getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
+    public void setEmpleado(List<Empleado> empleado) {
         this.empleado = empleado;
     }
     
@@ -79,8 +81,8 @@ public class Hospital {
         sb.append("nombre=").append(nombre);
         sb.append(", direccion=").append(direccion);
         sb.append(", numeroCamas=").append(numeroCamas);
-        sb.append(", paciente=").append(paciente);
-        sb.append(", empleado=").append(empleado);
+        sb.append(", paciente=").append(this.paciente);
+        sb.append(", empleado=").append(this.empleado);
         sb.append('}');
         return sb.toString();
     }
@@ -124,5 +126,15 @@ public class Hospital {
         return Objects.equals(this.empleado, other.empleado);
     }
     
+    //insertamos métodos para contratar empleados
+    public void contratarEmpleados(Empleado emp) {
+        this.empleado.add(emp);
+        System.out.println("Añadiendo empleado...");
+    }
     
+    //insertamos método para ingresar pacientes
+    public void ingresarPaciente(Paciente paciente) {
+        this.paciente.add(paciente);
+        System.out.println("Añadiendo paciente...");
+    }
 }
