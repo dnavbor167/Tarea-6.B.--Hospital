@@ -78,7 +78,7 @@ final public class Administrativo extends Empleado {
     final public double calcularIrpf() {
         switch (this.grupo) {
             case C -> {
-                return this.getSalario()* Grupo.C.getIrpf();
+                return this.getSalario() * Grupo.C.getIrpf();
             }
             case D -> {
                 return this.getSalario() * Grupo.D.getIrpf();

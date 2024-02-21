@@ -121,6 +121,8 @@ public class Nif {
     //método para renovar el dni
     public void renovar(LocalDate fechaSolicitudRenovacion) {
         this.fechaCaducidad = fechaSolicitudRenovacion.plusYears(10);
-        System.out.println("Fecha de caducidad extendida a dentro de 10 años");
+        System.out.println("Fecha de caducidad extendida a dentro de 10 años"
+                + ", en concreto el " + this.fechaCaducidad.getDayOfMonth()
+        + "/" + this.fechaCaducidad.getMonthValue()+ "/" + this.fechaCaducidad.getYear());
     }
 }

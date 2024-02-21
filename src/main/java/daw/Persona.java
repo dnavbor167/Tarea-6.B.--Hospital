@@ -67,7 +67,6 @@ public abstract class Persona {
 
     //método para renovarNif
     final public void renovarNif(LocalDate fechaSolicitud) {
-        LocalDate renovar = fechaSolicitud.plusYears(10);
-        this.nif.setFechaCaducidad(renovar);
+        this.nif.renovar(fechaSolicitud);
     }
 }
