@@ -75,18 +75,8 @@ final public class Administrativo extends Empleado {
     
     //sobreescribimos el método para calcular irpf
     @Override
-    final public double calcularIrpf() {
-        switch (this.grupo) {
-            case C -> {
-                return this.getSalario() * Grupo.C.getIrpf();
-            }
-            case D -> {
-                return this.getSalario() * Grupo.D.getIrpf();
-            }
-            default -> {
-                return this.getSalario() * Grupo.E.getIrpf();
-            }
-        }
+    public double calcularIrpf() {
+        return this.getSalario() * this.getGrupo().getIrpf();
     }
     
 }

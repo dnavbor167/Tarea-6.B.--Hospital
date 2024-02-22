@@ -9,6 +9,8 @@ package daw;
  * @author danielnavasborjas
  */
 final public class Medico extends Empleado implements Nadador{
+    public static double IRPF_CIRUJANO = 0.25;
+    public static double IRPF_MEDICO = 0.235;
 
     //insertamos atributos encapsulados
     private String especialidad;
@@ -57,9 +59,9 @@ final public class Medico extends Empleado implements Nadador{
     @Override
     final public double calcularIrpf() {
         if (this.especialidad.equalsIgnoreCase("cirugía")) {
-            return this.getSalario() * 0.25;
+            return this.getSalario() * IRPF_CIRUJANO;
         }
-        return this.getSalario() * 0.235;
+        return this.getSalario() * IRPF_MEDICO;
     }
 
     //insertamos método abstracto de la interfaz Nadador

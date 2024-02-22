@@ -59,5 +59,6 @@ public abstract class Empleado extends Persona{
     
     
     //insertamos método abstracto para calcular el irpf
+    //abstract que la muerte nos separe
     public abstract double calcularIrpf();
 }

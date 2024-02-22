@@ -69,7 +69,9 @@ final public class Paciente extends Persona implements Nadador{
     //insertamos método para tomar medicina
     public void tomarMedicina(String medicina) {
         Random r = new Random();
-        String mensaje = (r.nextInt(2) == 1) ? "El paciente " + this.getNombre() + ", se ha curado" : "El paciente " + this.getNombre() + ", no se ha curado";
+        String mensaje = (r.nextInt(2) == 1) ? "El paciente " +
+                this.getNombre() + ", se ha curado" : "El paciente " +
+                this.getNombre() + ", no se ha curado";
         System.out.println(mensaje);
     }
     

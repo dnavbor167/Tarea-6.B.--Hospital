@@ -55,9 +55,6 @@ public class Nif {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(LocalDate fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-    }
     
     //insertamos toString
     @Override
